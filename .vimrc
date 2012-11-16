@@ -19,8 +19,8 @@ colorscheme solarized
 
 
 
-" Set files with .scss extensions to Sass filetype
-au BufRead,BufNewFile *.scss set filetype=scss
+" Set files with .scss extensions to CSS filetype
+au BufRead,BufNewFile *.scss set filetype=css
 
 
 
@@ -46,6 +46,9 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
+"Allow motions and back-spacing over line-endings etc
+set backspace=indent,eol,start
+set whichwrap=h,l,b,<,>,~,[,]
 
 
 
@@ -66,24 +69,29 @@ set title
 " Show line number...
 set number
 " ...and set them relative to the current line
-if has("relativenumber")
-    set relativenumber
-endif
+set relativenumber
 " Limit line-length to 80 columns
-if has("colorcolumn")
-    set colorcolumn=81
-endif
+set colorcolumn=81
 "Highlight current line
 set cursorline
+" Don't keep results highlighted after searching...
+set nohlsearch
+" ...just highlight as we type
+set incsearch
 
 
 
+" Key mappings
+
+
+" jj to throw you into normal mode from insert mode
+inoremap jj <esc>
 " Disable arrow keys (hardcore)
-"map  <up>    <nop>
-"imap <up>    <nop>
-"map  <down>  <nop>
-"imap <down>  <nop>
-"map  <left>  <nop>
-"imap <left>  <nop>
-"map  <right> <nop>
-"imap <right> <nop>
+map  <up>    <nop>
+imap <up>    <nop>
+map  <down>  <nop>
+imap <down>  <nop>
+map  <left>  <nop>
+imap <left>  <nop>
+map  <right> <nop>
+imap <right> <nop>
