@@ -7,3 +7,7 @@ _Store
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Vim swap and backup files
+*.swo
+*.swp
