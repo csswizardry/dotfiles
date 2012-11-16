@@ -66,9 +66,13 @@ set title
 " Show line number...
 set number
 " ...and set them relative to the current line
-set relativenumber
+if has("relativenumber")
+    set relativenumber
+endif
 " Limit line-length to 80 columns
-set colorcolumn=81
+if has("colorcolumn")
+    set colorcolumn=81
+endif
 "Highlight current line
 set cursorline
 
