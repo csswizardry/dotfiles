@@ -69,12 +69,18 @@ set title
 " Show line number...
 set number
 " ...and set them relative to the current line
-set relativenumber
-" Limit line-length to 80 columns
-set colorcolumn=81
+if exists("+relativenumber")
+    set relativenumber
+else
+    set number
+endif
+" Limit line-length to 80 columns by highlighting col 81 onward
+if exists("+colorcolumn")
+    set colorcolumn=81
+endif
 "Highlight current line
 set cursorline
-" Don't keep results highlighted after searching...
+" Don’t keep results highlighted after searching...
 set nohlsearch
 " ...just highlight as we type
 set incsearch
