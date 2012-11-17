@@ -1,32 +1,33 @@
 [user]
-	name = Harry Roberts
-	email = harry@csswizardry.com
+    name = Harry Roberts
+    email = harry@csswizardry.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = true
-	pager = true
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
 [color "status"]
-	added = green
-	changed = blue
-	untracked = red
+    added = green
+    changed = blue
+    untracked = red
 [color "diff"]
-	meta = yellow
-	old = red bold
-	new = green bold
+    meta = yellow
+    old = red bold
+    new = green bold
 [alias]
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	df = diff
-	s = status
-	up = push
-	down = pull
+    s  = status
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    # James Brown version control!
+    up = push
+    down = pull
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore
+    editor = vim
+    excludesfile = ~/.gitignore
 [push]
 	default = current
