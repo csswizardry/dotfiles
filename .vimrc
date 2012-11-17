@@ -84,6 +84,10 @@ set cursorline
 set nohlsearch
 " ...just highlight as we type
 set incsearch
+" Ignore case when searching...
+set ignorecase
+" ...except if we input a capital letter
+set smartcase
 
 
 
