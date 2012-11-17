@@ -30,4 +30,4 @@
     editor = vim
     excludesfile = ~/.gitignore
 [push]
-	default = current
+    default = current
