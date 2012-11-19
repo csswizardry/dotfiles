@@ -1,0 +1,23 @@
+export PATH="~/bin:$PATH"
+
+
+GREY="\[\e[1;30m\]"
+GREEN="\[\e[0;32m\]"
+RED="\[\e[1;31m\]"
+NONE="\[\e[0m\]"
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
+if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+	source /usr/local/git/contrib/completion/git-completion.bash
+fi
+
+export PS1="${GREY}\u@\h:${GREEN}\$(__git_ps1) ${RED}\w ${NONE}\$ "
+
+if [ -f ~/.bash_aliases ]; then
+	source ~/.bash_aliases
+fi
+
+ulimit -S -n 1024
+
