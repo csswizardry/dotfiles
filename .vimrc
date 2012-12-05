@@ -93,9 +93,10 @@ set smartcase
 
 " Key mappings
 
-
 " jj to throw you into normal mode from insert mode
 inoremap jj <esc>
+" jk to throw you into normal mode from insert mode
+inoremap jk <esc>
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
 imap <up>    <nop>
