@@ -14,8 +14,8 @@
     untracked = red
 [color "diff"]
     meta = yellow
-    old = red bold
-    new = green bold
+    old = red
+    new = green
 [alias]
     s  = status
     st = status
