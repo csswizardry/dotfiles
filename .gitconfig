@@ -17,7 +17,6 @@
     old = red
     new = green
 [alias]
-    s  = status
     st = status
     ci = commit
     br = branch
