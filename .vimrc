@@ -4,6 +4,7 @@
 
 " No compatibility
 set nocompatible
+set encoding=utf-8
 
 
 
@@ -49,6 +50,8 @@ set sidescroll=1
 "Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
+" Underscores denote words
+set iskeyword-=_
 
 
 
