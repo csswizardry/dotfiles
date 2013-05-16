@@ -14,6 +14,8 @@ set encoding=utf-8
 filetype plugin on
 " Enable syntax highighting
 syntax enable
+" 256 colours, please
+set t_Co=256
 " Dark solarized scheme
 set background=dark
 colorscheme solarized
