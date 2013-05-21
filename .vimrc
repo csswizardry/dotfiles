@@ -71,11 +71,14 @@ set modeline
 set ruler
 " Show file title in terminal tab
 set title
-" Show line number...
-set number
-" ...and set them relative to the current line
+" Set relative line numbers if we can...
 if exists("+relativenumber")
+    " Due to a problem with relative line numbers not persisting across new
+    " tabs and splits, set no line numbers at all...
+    set nonumber
+    " ..then set relative ones.
     set relativenumber
+" ...otherwise let’s just have regular ones.
 else
     set number
 endif
