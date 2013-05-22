@@ -22,8 +22,9 @@ colorscheme solarized
 
 
 
-" Set files with .scss extensions to CSS filetype
+" Set relevant filetypes
 au BufRead,BufNewFile *.scss set filetype=css
+au BufRead,BufNewFile *.md set filetype=markdown
 
 
 
