@@ -36,7 +36,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-" Round indent to nearst multiple of 4
+" Round indent to nearest multiple of 4
 set shiftround
 " No line-wrapping
 set nowrap
@@ -50,7 +50,7 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
-"Allow motions and back-spacing over line-endings etc
+" Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
 " Underscores denote words
@@ -87,7 +87,7 @@ endif
 if exists("+colorcolumn")
     set colorcolumn=81
 endif
-"Highlight current line
+" Highlight current line
 set cursorline
 " Don’t keep results highlighted after searching...
 set nohlsearch
