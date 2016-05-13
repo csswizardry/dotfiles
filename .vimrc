@@ -5,7 +5,7 @@ execute pathogen#infect()
 
 
 
-" No compatibility
+" Use Vim features, not Vi.
 set nocompatible
 set encoding=utf-8
 
@@ -31,6 +31,8 @@ colorscheme solarized
 autocmd vimenter * NERDTree
 " ...but focus on the file itself, rather than NERDTree.
 autocmd VimEnter * wincmd p
+" Close Vim if only NERDTree is left open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 
@@ -102,18 +104,18 @@ set list
 set listchars=tab:>-,trail:~
 " Set relative line numbers if we can...
 if exists("+relativenumber")
-    " Due to a problem with relative line numbers not persisting across new
-    " tabs and splits, set no line numbers at all...
-    set nonumber
-    " ..then set relative ones.
-    set relativenumber
-" ...otherwise let’s just have regular ones.
+  " Due to a problem with relative line numbers not persisting across new
+  " tabs and splits, set no line numbers at all...
+  set nonumber
+  " ..then set relative ones.
+  set relativenumber
+  " ...otherwise let’s just have regular ones.
 else
-    set number
+  set number
 endif
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
-    set colorcolumn=81
+  set colorcolumn=81
 endif
 " Force cursor onto a new line after 80 characters
 set textwidth=80
