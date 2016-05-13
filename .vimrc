@@ -17,11 +17,20 @@ set encoding=utf-8
 filetype plugin on
 " Enable syntax highighting
 syntax enable
-" 256 colours, please
+" 256 colours please
 set t_Co=256
 " Dark solarized scheme
 set background=dark
 colorscheme solarized
+
+
+
+" NERDTree
+
+" Run NERDTree as soon as we launch Vim...
+autocmd vimenter * NERDTree
+" ...but focus on the file itself, rather than NERDTree.
+autocmd VimEnter * wincmd p
 
 
 
@@ -32,7 +41,15 @@ au BufRead,BufNewFile *.hbs set filetype=html
 
 
 
-" Tabs, indentation and lines
+" Buffer management
+
+" Open splits to the right or below; more natural than the default.
+set splitright
+set splitbelow
+
+
+
+" Text management
 
 filetype plugin indent on
 " 2 spaces please
@@ -40,12 +57,16 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-" Round indent to nearst multiple of 2
+" Round indent to nearest multiple of 2
 set shiftround
 " No line-wrapping
 set nowrap
-" Spell-check
+" Spell-check always on
 set spell
+" Underscores denote words
+set iskeyword-=_
+" No extra spaces when joining lines.
+set nojoinspaces
 
 
 
@@ -56,11 +77,9 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
-"Allow motions and back-spacing over line-endings etc
+" Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
-" Underscores denote words
-set iskeyword-=_
 
 
 
@@ -78,6 +97,9 @@ set modeline
 set ruler
 " Show file title in terminal tab
 set title
+" Show invisibles
+set list
+set listchars=tab:>-,trail:~
 " Set relative line numbers if we can...
 if exists("+relativenumber")
     " Due to a problem with relative line numbers not persisting across new
@@ -97,6 +119,11 @@ endif
 set textwidth=80
 "Highlight current line
 set cursorline
+
+
+
+" Search
+
 " Don’t keep results highlighted after searching...
 set nohlsearch
 " ...just highlight as we type
@@ -123,6 +150,8 @@ map  <left>  <nop>
 imap <left>  <nop>
 map  <right> <nop>
 imap <right> <nop>
+" Make `Y` behave like `C` and `D`.
+map Y y$
 
 " Make keypad function correctly.
 map <Esc>Oq 1
