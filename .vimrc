@@ -1,5 +1,8 @@
 " .vimrc
 
+" Let’s use Pathogen.
+execute pathogen#infect()
+
 
 
 " No compatibility
@@ -25,21 +28,24 @@ colorscheme solarized
 " Set relevant filetypes
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.hbs set filetype=html
 
 
 
 " Tabs, indentation and lines
 
 filetype plugin indent on
-" 4 spaces please
+" 2 spaces please
 set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-" Round indent to nearest multiple of 4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+" Round indent to nearst multiple of 2
 set shiftround
 " No line-wrapping
 set nowrap
+" Spell-check
+set spell
 
 
 
@@ -50,7 +56,7 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
-" Allow motions and back-spacing over line-endings etc
+"Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
 " Underscores denote words
@@ -87,7 +93,9 @@ endif
 if exists("+colorcolumn")
     set colorcolumn=81
 endif
-" Highlight current line
+" Force cursor onto a new line after 80 characters
+set textwidth=80
+"Highlight current line
 set cursorline
 " Don’t keep results highlighted after searching...
 set nohlsearch
@@ -115,3 +123,40 @@ map  <left>  <nop>
 imap <left>  <nop>
 map  <right> <nop>
 imap <right> <nop>
+
+" Make keypad function correctly.
+map <Esc>Oq 1
+map <Esc>Or 2
+map <Esc>Os 3
+map <Esc>Ot 4
+map <Esc>Ou 5
+map <Esc>Ov 6
+map <Esc>Ow 7
+map <Esc>Ox 8
+map <Esc>Oy 9
+map <Esc>Op 0
+map <Esc>On .
+map <Esc>OQ /
+map <Esc>OR *
+map <kPlus> +
+map <Esc>OS -
+map <Esc>OM <CR>
+map! <Esc>Oq 1
+map! <Esc>Or 2
+map! <Esc>Os 3
+map! <Esc>Ot 4
+map! <Esc>Ou 5
+map! <Esc>Ov 6
+map! <Esc>Ow 7
+map! <Esc>Ox 8
+map! <Esc>Oy 9
+map! <Esc>Op 0
+map! <Esc>On .
+map! <Esc>OQ /
+map! <Esc>OR *
+map! <kPlus> +
+map! <Esc>OS -
+map! <Esc>OM <CR>
+
+" Abbreviations and auto-completions
+ab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
