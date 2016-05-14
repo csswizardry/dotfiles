@@ -1,11 +1,12 @@
 " .vimrc
 
-" Let’s use Pathogen.
+" Setup
+
+" Let’s use Pathogen
 execute pathogen#infect()
-
-
-
-" Use Vim features, not Vi.
+" Space as a Leader
+let mapleader = "\<Space>"
+" Use Vim features, not Vi
 set nocompatible
 set encoding=utf-8
 
@@ -29,9 +30,9 @@ colorscheme solarized
 
 " Run NERDTree as soon as we launch Vim...
 autocmd vimenter * NERDTree
-" ...but focus on the file itself, rather than NERDTree.
+" ...but focus on the file itself, rather than NERDTree
 autocmd VimEnter * wincmd p
-" Close Vim if only NERDTree is left open.
+" Close Vim if only NERDTree is left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
@@ -45,7 +46,7 @@ au BufRead,BufNewFile *.hbs set filetype=html
 
 " Buffer management
 
-" Open splits to the right or below; more natural than the default.
+" Open splits to the right or below; more natural than the default
 set splitright
 set splitbelow
 
@@ -67,7 +68,7 @@ set nowrap
 set spell
 " Underscores denote words
 set iskeyword-=_
-" No extra spaces when joining lines.
+" No extra spaces when joining lines
 set nojoinspaces
 
 
@@ -101,15 +102,15 @@ set ruler
 set title
 " Show invisibles
 set list
-set listchars=tab:>-,trail:~
+set listchars=tab:>-,trail:·
 " Set relative line numbers if we can...
 if exists("+relativenumber")
   " Due to a problem with relative line numbers not persisting across new
   " tabs and splits, set no line numbers at all...
   set nonumber
-  " ..then set relative ones.
+  " ..then set relative ones...
   set relativenumber
-  " ...otherwise let’s just have regular ones.
+  " ...otherwise let’s just have regular ones
 else
   set number
 endif
@@ -152,10 +153,21 @@ map  <left>  <nop>
 imap <left>  <nop>
 map  <right> <nop>
 imap <right> <nop>
-" Make `Y` behave like `C` and `D`.
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+" Make `Y` behave like `C` and `D`
 map Y y$
+" Switch to previous window
+map <leader>` <C-w><C-p>
+" Vim-like window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
-" Make keypad function correctly.
+" Make keypad function correctly
 map <Esc>Oq 1
 map <Esc>Or 2
 map <Esc>Os 3
