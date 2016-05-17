@@ -26,6 +26,11 @@ colorscheme solarized
 
 
 
+" CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+
 " NERDTree
 
 " Run NERDTree as soon as we launch Vim...
@@ -159,6 +164,8 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 " Make `Y` behave like `C` and `D`
 map Y y$
+" `vv` to highlight just the text (i.e. no indents) in a line
+map vv ^vg_
 " Switch to previous window
 map <leader>` <C-w><C-p>
 " Vim-like window navigation
@@ -166,6 +173,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+" `G` skips to bottom of file and places line in middle of screen
+nnoremap G :norm! Gzz<CR>
 
 " Make keypad function correctly
 map <Esc>Oq 1
@@ -202,4 +211,4 @@ map! <Esc>OS -
 map! <Esc>OM <CR>
 
 " Abbreviations and auto-completions
-ab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+iab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
