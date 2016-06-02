@@ -1,6 +1,6 @@
 [user]
     name = Harry Roberts
-    email = harry@csswizardry.com
+    email = csswizardry@gmail.com
 [color]
     diff = auto
     status = auto
@@ -25,6 +25,10 @@
     # James Brown version control!
     up = push
     down = pull
+    # Show number of commits from all authors.
+    stats = shortlog -sn
+    # Empty line between results from different files.
+    # grep = "grep --break -C1 \"$1\""
 [core]
     editor = vim
     excludesfile = ~/.gitignore
