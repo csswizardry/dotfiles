@@ -2,7 +2,7 @@
 
 " Setup
 
-" Let’s use Pathogen
+" Let‚Äôs use Pathogen
 execute pathogen#infect()
 " Space as a Leader
 let mapleader = "\<Space>"
@@ -28,6 +28,11 @@ colorscheme solarized
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+
+" Set the dimmed colour for Limelight
+let g:limelight_conceal_ctermfg = 'LightGrey'
 
 
 
@@ -75,6 +80,8 @@ set spell
 set iskeyword-=_
 " No extra spaces when joining lines
 set nojoinspaces
+" Interpret numbers with leading zeroes as decimal, not octal
+set nrformats=
 
 
 
@@ -95,9 +102,9 @@ set whichwrap=h,l,b,<,>,~,[,]
 
 " Show status line
 set laststatus=2
-" Show what mode you’re currently in
+" Show what mode you‚Äôre currently in
 set showmode
-" Show what commands you’re typing
+" Show what commands you‚Äôre typing
 set showcmd
 " Allow modelines
 set modeline
@@ -107,7 +114,7 @@ set ruler
 set title
 " Show invisibles
 set list
-set listchars=tab:>-,trail:·
+set listchars=tab:>-,trail:¬∑
 " Set relative line numbers if we can...
 if exists("+relativenumber")
   " Due to a problem with relative line numbers not persisting across new
@@ -115,7 +122,7 @@ if exists("+relativenumber")
   set nonumber
   " ..then set relative ones...
   set relativenumber
-  " ...otherwise let’s just have regular ones
+  " ...otherwise let‚Äôs just have regular ones
 else
   set number
 endif
@@ -125,14 +132,14 @@ if exists("+colorcolumn")
 endif
 " Force cursor onto a new line after 80 characters
 set textwidth=80
-"Highlight current line
+" Highlight current line
 set cursorline
 
 
 
 " Search
 
-" Don’t keep results highlighted after searching...
+" Don‚Äôt keep results highlighted after searching...
 set nohlsearch
 " ...just highlight as we type
 set incsearch
@@ -166,6 +173,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 map Y y$
 " `vv` to highlight just the text (i.e. no indents) in a line
 map vv ^vg_
+" `<Cr` in normal mode inserts a break at the cursor and enters insert mode
+"nnoremap <Cr> i<CR><ESC>I
 " Switch to previous window
 map <leader>` <C-w><C-p>
 " Vim-like window navigation
@@ -175,6 +184,10 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 " `G` skips to bottom of file and places line in middle of screen
 nnoremap G :norm! Gzz<CR>
+" `gf` opens file under cursor in a new vertical split
+nnoremap gf :vertical wincmd f<CR>
+" `gF` opens file under cursor in a new split
+nnoremap gF <C-w>f
 
 " Make keypad function correctly
 map <Esc>Oq 1
@@ -210,5 +223,22 @@ map! <kPlus> +
 map! <Esc>OS -
 map! <Esc>OM <CR>
 
+
+
 " Abbreviations and auto-completions
+
+" lipsum<Tab> drops some Lorem ipsum text into the document
 iab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+" Set up a section-level comment
+iab comsec 
+\/* ==========================================================================
+\<Cr>#
+\<Cr>========================================================================== */
+" Set up a sub-level comment
+iab comsub 
+\/*
+\<Cr>========================================================================== */
+" Running the `@c` macro will always insert a section-level comment
+let @c = 'O^Mcomsec><80>kbjk2?*^M^Vkr A'
+" Running the `@x` macro will always insert a sub-level comment
+let @x = 'O^Mcomsub><80>kbjk^[^r kA '
