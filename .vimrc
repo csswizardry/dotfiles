@@ -2,7 +2,7 @@
 
 " Setup
 
-" Let‚Äôs use Pathogen
+" Let's use Pathogen
 execute pathogen#infect()
 " Space as a Leader
 let mapleader = "\<Space>"
@@ -39,9 +39,9 @@ let g:limelight_conceal_ctermfg = 'LightGrey'
 " NERDTree
 
 " Run NERDTree as soon as we launch Vim...
-autocmd vimenter * NERDTree
-" ...but focus on the file itself, rather than NERDTree
-autocmd VimEnter * wincmd p
+"autocmd vimenter * NERDTree
+"" ...but focus on the file itself, rather than NERDTree
+"autocmd VimEnter * wincmd p
 " Close Vim if only NERDTree is left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -59,6 +59,11 @@ au BufRead,BufNewFile *.hbs set filetype=html
 " Open splits to the right or below; more natural than the default
 set splitright
 set splitbelow
+" Set the working directory to wherever the open file lives (can be problematic)
+set autochdir
+" set path+=**
+" Show file options above the command line
+set wildmenu
 
 
 
@@ -102,9 +107,9 @@ set whichwrap=h,l,b,<,>,~,[,]
 
 " Show status line
 set laststatus=2
-" Show what mode you‚Äôre currently in
+" Show what mode you're currently in
 set showmode
-" Show what commands you‚Äôre typing
+" Show what commands you're typing
 set showcmd
 " Allow modelines
 set modeline
@@ -114,22 +119,13 @@ set ruler
 set title
 " Show invisibles
 set list
-set listchars=tab:>-,trail:¬∑
-" Set relative line numbers if we can...
-if exists("+relativenumber")
-  " Due to a problem with relative line numbers not persisting across new
-  " tabs and splits, set no line numbers at all...
-  set nonumber
-  " ..then set relative ones...
-  set relativenumber
-  " ...otherwise let‚Äôs just have regular ones
-else
-  set number
-endif
+set listchars=tab:»-,trail:•
+" Set relative line numbers...
+set relativenumber
+" ...but absolute numbers on the current line
+set number
 " Limit line-length to 80 columns by highlighting col 81 onward
-if exists("+colorcolumn")
-  set colorcolumn=81
-endif
+set colorcolumn=81
 " Force cursor onto a new line after 80 characters
 set textwidth=80
 " Highlight current line
@@ -139,7 +135,7 @@ set cursorline
 
 " Search
 
-" Don‚Äôt keep results highlighted after searching...
+" Don't keep results highlighted after searching...
 set nohlsearch
 " ...just highlight as we type
 set incsearch
@@ -174,7 +170,9 @@ map Y y$
 " `vv` to highlight just the text (i.e. no indents) in a line
 map vv ^vg_
 " `<Cr` in normal mode inserts a break at the cursor and enters insert mode
-"nnoremap <Cr> i<CR><ESC>I
+nnoremap <Cr> i<CR><ESC>I
+" `G` skips to bottom of file and places line in middle of screen
+nnoremap G :norm! Gzz<CR>
 " Switch to previous window
 map <leader>` <C-w><C-p>
 " Vim-like window navigation
@@ -182,12 +180,16 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" `G` skips to bottom of file and places line in middle of screen
-nnoremap G :norm! Gzz<CR>
+" `gb` switches to next buffer, like `gt` does with tabs
+nnoremap gb :bn<Cr>
+" `gB` switches to previous buffer, like `gT` does with tabs
+nnoremap gB :bp<Cr>
 " `gf` opens file under cursor in a new vertical split
 nnoremap gf :vertical wincmd f<CR>
 " `gF` opens file under cursor in a new split
 nnoremap gF <C-w>f
+" Toggle `hlsearch` with <Space>/
+nnoremap <leader>/ :set hlsearch!<CR>
 
 " Make keypad function correctly
 map <Esc>Oq 1
@@ -229,16 +231,18 @@ map! <Esc>OM <CR>
 
 " lipsum<Tab> drops some Lorem ipsum text into the document
 iab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-" Set up a section-level comment
-iab comsec 
-\/* ==========================================================================
-\<Cr>#
-\<Cr>========================================================================== */
-" Set up a sub-level comment
-iab comsub 
-\/*
-\<Cr>========================================================================== */
+" Insert email address
+iab @@ csswizardry@gmail.com
+" Insert username
+iab @@@ csswizardry
+" `comline` will add a line-comment to our CSS
+iab comline /* [x] */
 " Running the `@c` macro will always insert a section-level comment
-let @c = 'O^Mcomsec><80>kbjk2?*^M^Vkr A'
+let @c = 'O/* jk74a=jkoÄkbÄkbÄkb   #
+ Äkb jk74a=jkA */jkkA'
 " Running the `@x` macro will always insert a sub-level comment
-let @x = 'O^Mcomsub><80>kbjk^[^r kA '
+let @x = 'o
+/*
+ÄkbÄkb  jk74a=jkA */jkkA '
+" Running the `@v` macro will always insert a line-level comment
+let @v = 'A comline	ÄkbjkFxs'
