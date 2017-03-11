@@ -22,7 +22,16 @@ syntax enable
 set t_Co=256
 " Dark solarized scheme
 set background=dark
-colorscheme solarized
+" Disable original solarized...
+" colorscheme solarized
+" ...and use the true colour version instead
+colorscheme solarized8_dark
+if version > 800
+  set termguicolors
+endif
+" Italicised comments and attributes
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
 
 
 
@@ -33,6 +42,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Set the dimmed colour for Limelight
 let g:limelight_conceal_ctermfg = 'LightGrey'
+
+
+
+" Disable indentLine by default
+let g:indentLine_enabled = 0
 
 
 
@@ -48,7 +62,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 
 " Set relevant filetypes
-au BufRead,BufNewFile *.scss set filetype=css
+"au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.hbs set filetype=html
 
@@ -64,6 +78,9 @@ set autochdir
 " set path+=**
 " Show file options above the command line
 set wildmenu
+" Don't offer to open certain files
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
 
 
 
@@ -87,6 +104,8 @@ set iskeyword-=_
 set nojoinspaces
 " Interpret numbers with leading zeroes as decimal, not octal
 set nrformats=
+" Auto-format comments
+set formatoptions+=roq
 
 
 
@@ -100,6 +119,8 @@ set sidescroll=1
 " Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
+" Don't redraw the screen unless we need to
+set lazyredraw
 
 
 
@@ -119,10 +140,10 @@ set ruler
 set title
 " Show invisibles
 set list
-set listchars=tab:»-,trail:•
+set listchars=tab:ª-,trail:∑
 " Set relative line numbers...
 set relativenumber
-" ...but absolute numbers on the current line
+" ...but absolute numbers on the current line (hybrid numbering)
 set number
 " Limit line-length to 80 columns by highlighting col 81 onward
 set colorcolumn=81
@@ -166,20 +187,23 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 " Make `Y` behave like `C` and `D`
-map Y y$
+nnoremap Y y$
+" Make `n`/`N` bring next search result to middle line
+nnoremap n nzz
+nnoremap N Nzz
 " `vv` to highlight just the text (i.e. no indents) in a line
-map vv ^vg_
+nnoremap vv ^vg_
 " `<Cr` in normal mode inserts a break at the cursor and enters insert mode
 nnoremap <Cr> i<CR><ESC>I
 " `G` skips to bottom of file and places line in middle of screen
 nnoremap G :norm! Gzz<CR>
 " Switch to previous window
-map <leader>` <C-w><C-p>
+nnoremap <leader>` <C-w><C-p>
 " Vim-like window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " `gb` switches to next buffer, like `gt` does with tabs
 nnoremap gb :bn<Cr>
 " `gB` switches to previous buffer, like `gT` does with tabs
@@ -190,6 +214,10 @@ nnoremap gf :vertical wincmd f<CR>
 nnoremap gF <C-w>f
 " Toggle `hlsearch` with <Space>/
 nnoremap <leader>/ :set hlsearch!<CR>
+" Make tabbing persistent in visual mode
+vnoremap <tab> >gv
+" Toggle indentLine plugin on/off
+nnoremap <leader>i :IndentLinesToggle<CR>
 
 " Make keypad function correctly
 map <Esc>Oq 1
@@ -235,6 +263,8 @@ iab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada 
 iab @@ csswizardry@gmail.com
 " Insert username
 iab @@@ csswizardry
+" Automatically add `rel="noopener"` to `target="_blank"`
+iab target="_blank" target="_blank" rel="noopener"
 " `comline` will add a line-comment to our CSS
 iab comline /* [x] */
 " Running the `@c` macro will always insert a section-level comment
