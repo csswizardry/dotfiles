@@ -23,12 +23,7 @@ set t_Co=256
 " Dark solarized scheme
 set background=dark
 " Disable original solarized...
-" colorscheme solarized
-" ...and use the true colour version instead
-colorscheme solarized8_dark
-if version > 800
-  set termguicolors
-endif
+colorscheme solarized
 " Italicised comments and attributes
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
@@ -145,10 +140,12 @@ set listchars=tab:ª-,trail:∑
 set relativenumber
 " ...but absolute numbers on the current line (hybrid numbering)
 set number
-" Limit line-length to 80 columns by highlighting col 81 onward
-set colorcolumn=81
-" Force cursor onto a new line after 80 characters
+" Force the cursor onto a new line after 80 characters
 set textwidth=80
+" However, in Git commit messages, let's make it 72 characters
+autocmd FileType gitcommit set textwidth=72
+" Colour the 81st (or 73rd) column so that we don't type over our limit
+set colorcolumn=+1
 " Highlight current line
 set cursorline
 
