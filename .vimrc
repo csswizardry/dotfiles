@@ -20,10 +20,10 @@ filetype plugin on
 syntax enable
 " 256 colours please
 set t_Co=256
-" Dark solarized scheme
-set background=dark
-" Disable original solarized...
+" Solarized colour scheme...
 colorscheme solarized
+" ...with a dark background
+set background=dark
 " Italicised comments and attributes
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
@@ -144,7 +144,7 @@ set number
 set textwidth=80
 " However, in Git commit messages, let's make it 72 characters
 autocmd FileType gitcommit set textwidth=72
-" Colour the 81st (or 73rd) column so that we don't type over our limit
+" Colour the 81st (or 73rd) column so that we donøt type over our limit
 set colorcolumn=+1
 " Highlight current line
 set cursorline
