@@ -1,14 +1,17 @@
 # System files
 _Store
-.DS_Store?
+.DS_Store
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
 .sass-cache
+*.map
 
 # Vim swap and backup files
 *.swo
 *.swp
+
+# ctags files
+tags

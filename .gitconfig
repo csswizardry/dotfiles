@@ -1,6 +1,7 @@
 [user]
   name = Harry Roberts
   email = csswizardry@gmail.com
+	signingkey = E26101E28DE77CC7
 [color]
   diff = auto
   status = auto
@@ -28,20 +29,32 @@
   # James Brown version control!
   up = push
   down = pull
+  # Set upstream tracking much faster
+  publish = push -u origin
   # Show number of commits from all authors.
   stats = shortlog -sn
   # Show detailed logs
   graph = log --graph --decorate --stat --date=iso --all
   # Show simplified logs
-  recap = log --oneline
+  overview = log --oneline --no-merges
+  recap = log --oneline --no-merges --author=csswizardry@gmail.com
+  # See today’s work
+  today = log --since=\"00:00:00\" --all --no-merges --oneline --author=csswizardry@gmail.com
   # Empty line between results from different files.
   find = "!git grep --break -C1"
+  # Show your ten most recently checked out branches
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+  # Compare commits in one branch against another, e.g. $ git compare tkt-0021 to develop
+  compare = "!f() { git log --oneline $1..$2;  }; f"
 [core]
   editor = vim
   excludesfile = ~/.gitignore
+  whitespace = warn
 [push]
   default = current
 [github]
   user = csswizardry
 [ghi]
   token = !security find-internet-password -a csswizardry -s github.com -l 'ghi token' -w
+[commit]
+  template = /Users/harryroberts/.git-commit-template

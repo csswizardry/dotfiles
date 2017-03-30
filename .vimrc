@@ -18,6 +18,8 @@ set encoding=utf-8
 filetype plugin on
 " Enable syntax highighting
 syntax enable
+" Show matching parens, brackets, etc.
+set showmatch
 " 256 colours please
 set t_Co=256
 " Solarized colour scheme...
@@ -27,6 +29,8 @@ set background=dark
 " Italicised comments and attributes
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
+" Tell Vim to look in my home directory for more ctags
+set tags+=tags;$HOME
 
 
 
@@ -52,14 +56,14 @@ let g:indentLine_enabled = 0
 "" ...but focus on the file itself, rather than NERDTree
 "autocmd VimEnter * wincmd p
 " Close Vim if only NERDTree is left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 
 " Set relevant filetypes
 "au BufRead,BufNewFile *.scss set filetype=css
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.hbs set filetype=html
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.hbs set filetype=html
 
 
 
@@ -73,9 +77,10 @@ set autochdir
 " set path+=**
 " Show file options above the command line
 set wildmenu
-" Don't offer to open certain files
+" Don't offer to open certain files/directories
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
+set wildignore+=node_modules/*,bower_components/*
 
 
 
@@ -111,11 +116,13 @@ set scrolloff=3
 set sidescrolloff=5
 " Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
-" Allow motions and back-spacing over line-endings etc
+" Allow motions and back-spacing over line-endings etc.
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
 " Don't redraw the screen unless we need to
 set lazyredraw
+" Write swapfiles to disk a little sooner
+set updatetime=250
 
 
 
@@ -131,11 +138,13 @@ set showcmd
 set modeline
 " Show current line and column position in file
 set ruler
+" Customise our current location information
+set statusline=%f\ %=Line\ %l/%L\ Col\ %c\ (%p%%)
 " Show file title in terminal tab
 set title
 " Show invisibles
 set list
-set listchars=tab:Âª-,trail:âˆ‘
+set listchars=tab:»-,trail:·
 " Set relative line numbers...
 set relativenumber
 " ...but absolute numbers on the current line (hybrid numbering)
@@ -144,7 +153,7 @@ set number
 set textwidth=80
 " However, in Git commit messages, let's make it 72 characters
 autocmd FileType gitcommit set textwidth=72
-" Colour the 81st (or 73rd) column so that we donÃ¸t type over our limit
+" Colour the 81st (or 73rd) column so that we don't type over our limit
 set colorcolumn=+1
 " Highlight current line
 set cursorline
@@ -265,11 +274,8 @@ iab target="_blank" target="_blank" rel="noopener"
 " `comline` will add a line-comment to our CSS
 iab comline /* [x] */
 " Running the `@c` macro will always insert a section-level comment
-let @c = 'O/* jk74a=jkoÃ„kbÃ„kbÃ„kb   #
- Ã„kb jk74a=jkA */jkkA'
+let @c = 'O/* jk74a=jko€kb€kb€kb   # €kb jk74a=jkA */jkkA'
 " Running the `@x` macro will always insert a sub-level comment
-let @x = 'o
-/*
-Ã„kbÃ„kb  jk74a=jkA */jkkA '
+let @x = 'o/*€kb€kb  jk74a=jkA */jkkA '
 " Running the `@v` macro will always insert a line-level comment
-let @v = 'A comline	Ã„kbjkFxs'
+let @v = 'A comline	€kbjkFxs'
