@@ -153,8 +153,10 @@ set number
 set textwidth=80
 " However, in Git commit messages, let's make it 72 characters
 autocmd FileType gitcommit set textwidth=72
-" Colour the 81st (or 73rd) column so that we don't type over our limit
-set colorcolumn=+1
+" Colour the 81st column so that we don't type over our limit
+set colorcolumn=81
+" In Git commit messages, colour our 51st and 73rd columns
+autocmd FileType gitcommit set colorcolumn=51,73
 " Highlight current line
 set cursorline
 
