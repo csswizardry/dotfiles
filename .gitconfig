@@ -58,3 +58,7 @@
   token = !security find-internet-password -a csswizardry -s github.com -l 'ghi token' -w
 [commit]
   template = /Users/harryroberts/.git-commit-template
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
