@@ -23,7 +23,7 @@ YELLOW="\[\033[0;33m\]"
 BLUE="\[\033[0;34m\]"
 NO_COLOUR="\[\033[0m\]"
 
-PS1="$GREEN\u$NO_COLOUR in $BLUE\w$NO_COLOUR on$YELLOW\$(parse_git_branch)$NO_COLOUR\n» "
+PS1="$GREEN\u$NO_COLOUR \e[3min $BLUE\w$NO_COLOUR \e[3mon$YELLOW\$(parse_git_branch)$NO_COLOUR\n» "
 
 
 
