@@ -36,7 +36,6 @@ alias vtop="vtop --theme wizard"
 alias site="cd ~/Sites/csswizardry.com"
 alias inuitcss="cd ~/Sites/inuitcss/inuitcss"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias ngrok="/Applications/ngrok"
 alias ctags="`brew --prefix`/bin/ctags"
 alias ll="ls -lhFG"
 
