@@ -1,7 +1,7 @@
 [user]
   name = Harry Roberts
   email = csswizardry@gmail.com
-  signingkey = E26101E28DE77CC7
+  signingkey = D237343A
 [color]
   diff = auto
   status = auto
@@ -58,6 +58,7 @@
   token = !security find-internet-password -a csswizardry -s github.com -l 'ghi token' -w
 [commit]
   template = /Users/harryroberts/.git-commit-template
+  gpgsign = true
 [diff]
   tool = vimdiff
 [difftool]
