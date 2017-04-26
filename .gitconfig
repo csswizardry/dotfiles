@@ -1,7 +1,7 @@
 [user]
   name = Harry Roberts
   email = csswizardry@gmail.com
-	signingkey = E26101E28DE77CC7
+  signingkey = E26101E28DE77CC7
 [color]
   diff = auto
   status = auto
