@@ -2,7 +2,7 @@
 
 " Setup
 
-" Let's use Pathogen
+" Letâ€™s use Pathogen
 execute pathogen#infect()
 " Space as a Leader
 let mapleader = "\<Space>"
@@ -31,6 +31,11 @@ highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 " Tell Vim to look in my home directory for more ctags
 set tags+=tags;$HOME
+
+
+
+" Airline
+let g:airline_detect_spell=0
 
 
 
@@ -77,7 +82,7 @@ set autochdir
 " set path+=**
 " Show file options above the command line
 set wildmenu
-" Don't offer to open certain files/directories
+" Donâ€™t offer to open certain files/directories
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=node_modules/*,bower_components/*
@@ -119,7 +124,7 @@ set sidescroll=1
 " Allow motions and back-spacing over line-endings etc.
 set backspace=indent,eol,start
 set whichwrap=h,l,b,<,>,~,[,]
-" Don't redraw the screen unless we need to
+" Donâ€™t redraw the screen unless we need to
 set lazyredraw
 " Write swapfiles to disk a little sooner
 set updatetime=250
@@ -130,9 +135,9 @@ set updatetime=250
 
 " Show status line
 set laststatus=2
-" Show what mode you're currently in
+" Show what mode youâ€™re currently in
 set showmode
-" Show what commands you're typing
+" Show what commands youâ€™re typing
 set showcmd
 " Allow modelines
 set modeline
@@ -144,16 +149,16 @@ set statusline=%f\ %=Line\ %l/%L\ Col\ %c\ (%p%%)
 set title
 " Show invisibles
 set list
-set listchars=tab:»-,trail:·
+set listchars=tab:Â»-,trail:Â·
 " Set relative line numbers...
 set relativenumber
 " ...but absolute numbers on the current line (hybrid numbering)
 set number
 " Force the cursor onto a new line after 80 characters
 set textwidth=80
-" However, in Git commit messages, let's make it 72 characters
+" However, in Git commit messages, letâ€™s make it 72 characters
 autocmd FileType gitcommit set textwidth=72
-" Colour the column just after our line limit so that we don't type over it
+" Colour the column just after our line limit so that we donâ€™t type over it
 set colorcolumn=+1
 " In Git commit messages, also colour the 51st column (for titles)
 autocmd FileType gitcommit set colorcolumn+=51
@@ -164,7 +169,7 @@ set cursorline
 
 " Search
 
-" Don't keep results highlighted after searching...
+" Donâ€™t keep results highlighted after searching...
 set nohlsearch
 " ...just highlight as we type
 set incsearch
@@ -276,8 +281,8 @@ iab target="_blank" target="_blank" rel="noopener"
 " `comline` will add a line-comment to our CSS
 iab comline /* [x] */
 " Running the `@c` macro will always insert a section-level comment
-let @c = 'O/* jk74a=jko€kb€kb€kb   # €kb jk74a=jkA */jkkA'
+let @c = 'O/* jk74a=jkoÂ€kbÂ€kbÂ€kb   # Â€kb jk74a=jkA */jkkA'
 " Running the `@x` macro will always insert a sub-level comment
-let @x = 'o/*€kb€kb  jk74a=jkA */jkkA '
+let @x = 'o/*Â€kbÂ€kb  jk74a=jkA */jkkA '
 " Running the `@v` macro will always insert a line-level comment
-let @v = 'A comline	€kbjkFxs'
+let @v = 'A comline	Â€kbjkFxs'
