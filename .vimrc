@@ -185,18 +185,18 @@ set smartcase
 " Key mappings
 
 " jj to throw you into normal mode from insert mode
-inoremap jj <esc>
+inoremap jj <Esc>
 " jk to throw you into normal mode from insert mode
-inoremap jk <esc>
+inoremap jk <Esc>
 " Disable arrow keys (hardcore)
-map  <up>    <nop>
-imap <up>    <nop>
-map  <down>  <nop>
-imap <down>  <nop>
-map  <left>  <nop>
-imap <left>  <nop>
-map  <right> <nop>
-imap <right> <nop>
+map  <Up>    <Nop>
+imap <Up>    <Nop>
+map  <Down>  <Nop>
+imap <Down>  <Nop>
+map  <Left>  <Nop>
+imap <Left>  <Nop>
+map  <Right> <Nop>
+imap <Right> <Nop>
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
@@ -208,31 +208,33 @@ nnoremap n nzz
 nnoremap N Nzz
 " `vv` to highlight just the text (i.e. no indents) in a line
 nnoremap vv ^vg_
-" `<Cr` in normal mode inserts a break at the cursor and enters insert mode
-nnoremap <Cr> i<CR><ESC>I
+" `<CR` in normal mode inserts a break at the cursor and enters insert mode
+nnoremap <CR> i<CR><Esc>I
 " `G` skips to bottom of file and places line in middle of screen
 nnoremap G :norm! Gzz<CR>
 " Switch to previous window
-nnoremap <leader>` <C-w><C-p>
+nnoremap <Leader>` <C-w><C-p>
 " Vim-like window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " `gb` switches to next buffer, like `gt` does with tabs
-nnoremap gb :bn<Cr>
+nnoremap gb :bn<CR>
 " `gB` switches to previous buffer, like `gT` does with tabs
-nnoremap gB :bp<Cr>
+nnoremap gB :bp<CR>
 " `gf` opens file under cursor in a new vertical split
 nnoremap gf :vertical wincmd f<CR>
 " `gF` opens file under cursor in a new split
 nnoremap gF <C-w>f
 " Toggle `hlsearch` with <Space>/
-nnoremap <leader>/ :set hlsearch!<CR>
+nnoremap <Leader>/ :set hlsearch!<CR>
 " Make tabbing persistent in visual mode
-vnoremap <tab> >gv
+vnoremap <Tab> >gv
 " Toggle indentLine plugin on/off
-nnoremap <leader>i :IndentLinesToggle<CR>
+nnoremap <Leader>i :IndentLinesToggle<CR>
+" Toggle pasting mode
+set pastetoggle=<Leader>p
 
 " Make keypad function correctly
 map <Esc>Oq 1
@@ -248,7 +250,7 @@ map <Esc>Op 0
 map <Esc>On .
 map <Esc>OQ /
 map <Esc>OR *
-map <kPlus> +
+map <KPlus> +
 map <Esc>OS -
 map <Esc>OM <CR>
 map! <Esc>Oq 1
@@ -264,7 +266,7 @@ map! <Esc>Op 0
 map! <Esc>On .
 map! <Esc>OQ /
 map! <Esc>OR *
-map! <kPlus> +
+map! <KPlus> +
 map! <Esc>OS -
 map! <Esc>OM <CR>
 
