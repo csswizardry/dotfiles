@@ -29,7 +29,7 @@ colorscheme solarized
 " ...with a dark background
 set background=dark
 " Italicised comments and attributes
-highlight Comment cterm=italic
+highlight comment cterm=italic
 highlight htmlArg cterm=italic
 " Tell Vim to look in my home directory for more ctags
 set tags+=tags;$HOME
@@ -118,9 +118,9 @@ set iskeyword-=_
 " No extra spaces when joining lines
 set nojoinspaces
 " Interpret numbers with leading zeroes as decimal, not octal
-set nrformats=
+set nrformats-=octal
 " Auto-format comments
-set formatoptions+=roq
+set formatoptions+=jroqn1
 
 
 
