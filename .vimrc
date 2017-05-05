@@ -51,14 +51,6 @@ let g:limelight_conceal_ctermfg = 'LightGrey'
 
 
 
-" Smooth-Scroll
-noremap <Silent> <C-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <Silent> <C-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <Silent> <C-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <Silent> <C-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
-
-
 " Disable indentLine by default
 let g:indentLine_enabled = 0
 
