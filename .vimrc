@@ -234,7 +234,7 @@ vnoremap <Tab> >gv
 " Toggle indentLine plugin on/off
 nnoremap <Leader>i :IndentLinesToggle<CR>
 " Toggle pasting mode
-set pastetoggle=<Leader>p
+nnoremap <Leader>p :set paste!<CR>
 
 " Make keypad function correctly
 map <Esc>Oq 1
