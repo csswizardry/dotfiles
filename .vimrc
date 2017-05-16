@@ -213,7 +213,7 @@ nnoremap n nzz
 nnoremap N Nzz
 " `vv` to highlight just the text (i.e. no indents) in a line
 nnoremap vv ^vg_
-" `<CR` in normal mode inserts a break at the cursor and enters insert mode
+" `<CR>` in normal mode inserts a break at the cursor and enters insert mode
 nnoremap <CR> i<CR><Esc>I
 " `G` skips to bottom of file and places line in middle of screen
 nnoremap G :norm! Gzz<CR>
