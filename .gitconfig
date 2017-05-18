@@ -30,7 +30,7 @@
   up = push
   down = pull
   # Set upstream tracking much faster
-  publish = push -u origin
+  publish = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
   # Show number of commits from all authors.
   stats = shortlog -sn
   # Show detailed logs
