@@ -47,9 +47,9 @@
   # Compare commits in one branch against another, e.g. $ git compare tkt-0021 to develop
   compare = "!f() { git log --oneline $1..$2;  }; f"
   # See which commits are on your local branch that aren’t on the remote
-  local = "! git log --oneline origin/$(git rev-parse --abbrev-ref HEAD).."
+  local = "! git log --oneline --no-merges origin/$(git rev-parse --abbrev-ref HEAD).."
   # See which commits are on the remote that aren’t on your local branch
-  upstream = "! git fetch && git log --oneline ..origin/$(git rev-parse --abbrev-ref HEAD)"
+  upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
 [core]
   editor = vim
   excludesfile = ~/.gitignore
