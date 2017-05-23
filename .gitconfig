@@ -71,3 +71,7 @@
   prompt = false
 [help]
   autocorrect = 1
+[merge]
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
