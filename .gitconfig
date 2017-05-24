@@ -53,6 +53,8 @@
   local = "! git log --oneline --no-merges origin/$(git rev-parse --abbrev-ref HEAD).."
   # See which commits are on the remote that aren’t on your local branch
   upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
+  # Nicer diffs for prose
+  wdiff = diff --word-diff
 [core]
   editor = vim
   excludesfile = ~/.gitignore
