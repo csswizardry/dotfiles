@@ -55,6 +55,8 @@
   upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
   # Nicer diffs for prose
   wdiff = diff --word-diff
+  # Make it possible to diff minified code (eww…)
+  mindiff = diff -w --word-diff-regex=. --color-words -U0
 [core]
   editor = vim
   excludesfile = ~/.gitignore
