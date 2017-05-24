@@ -31,6 +31,7 @@
   down = pull
   # It’s nice to be nice
   praise = blame
+  who = blame
   # Set upstream tracking much faster
   publish = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
   # Show number of commits from all authors.
