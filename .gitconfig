@@ -29,6 +29,8 @@
   # James Brown version control!
   up = push
   down = pull
+  # Sneak changes into your previous commit
+  sneak = commit -a --amend --no-edit
   # It’s nice to be nice
   praise = blame
   who = blame
