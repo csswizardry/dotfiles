@@ -29,8 +29,11 @@ colorscheme solarized
 " ...with a dark background
 set background=dark
 " Italicised comments and attributes
-highlight comment cterm=italic
+highlight Comment cterm=italic
 highlight htmlArg cterm=italic
+" Ensure that italics carry over if I ever switch light/dark scheme
+autocmd ColorScheme * highlight! Comment cterm=italic
+autocmd ColorScheme * highlight! htmlArg cterm=italic
 " Tell Vim to look in my home directory for more ctags
 set tags+=tags;$HOME
 
@@ -236,7 +239,7 @@ nnoremap <Leader>i :IndentLinesToggle<CR>
 " Toggle pasting mode
 nnoremap <Leader>p :set paste!<CR>
 " Toggle light/dark backgrounds
-nnoremap <Leader>bg :let &background = (&background == "dark" ? "light" : "dark")<CR>:highlight Comment cterm=italic<CR>:highlight htmlArg cterm=italic<CR>
+nnoremap <Leader>bg :let &background = (&background == "dark" ? "light" : "dark")<CR>
 " Strip trailing whitespace
 nnoremap <Leader>ws :%s/ \+$//<CR>
 
