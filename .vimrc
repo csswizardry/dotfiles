@@ -235,6 +235,8 @@ vnoremap <Tab> >gv
 nnoremap <Leader>i :IndentLinesToggle<CR>
 " Toggle pasting mode
 nnoremap <Leader>p :set paste!<CR>
+" Toggle light/dark backgrounds
+nnoremap <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>:highlight Comment cterm=italic<CR>:highlight htmlArg cterm=italic<CR>
 
 " Make keypad function correctly
 map <Esc>Oq 1
