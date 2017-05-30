@@ -236,7 +236,7 @@ nnoremap <Leader>i :IndentLinesToggle<CR>
 " Toggle pasting mode
 nnoremap <Leader>p :set paste!<CR>
 " Toggle light/dark backgrounds
-nnoremap <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>:highlight Comment cterm=italic<CR>:highlight htmlArg cterm=italic<CR>
+nnoremap <Leader>bg :let &background = (&background == "dark" ? "light" : "dark")<CR>:highlight Comment cterm=italic<CR>:highlight htmlArg cterm=italic<CR>
 " Strip trailing whitespace
 nnoremap <Leader>ws :%s/ \+$//<CR>
 
