@@ -242,6 +242,8 @@ nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>bg :let &background = (&background == "dark" ? "light" : "dark")<CR>
 " Strip trailing whitespace
 nnoremap <Leader>ws :%s/ \+$//<CR>
+" Convert tabs to spaces
+nnoremap <Leader>rt :retab<CR>
 
 " Make keypad function correctly
 map <Esc>Oq 1
