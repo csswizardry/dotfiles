@@ -4,6 +4,7 @@
 --exclude=.backup
 --exclude=.sass-cache
 --exclude=vendors
+--exclude=node_modules
 --exclude=.git
 
 --langdef=css
