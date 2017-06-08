@@ -188,9 +188,8 @@ set smartcase
 
 " Key mappings
 
-" jj to throw you into normal mode from insert mode
+" `jj` and `jk` to throw you into normal mode from insert mode
 inoremap jj <Esc>
-" jk to throw you into normal mode from insert mode
 inoremap jk <Esc>
 " Disable arrow keys (hardcore)
 map  <Up>    <Nop>
@@ -201,10 +200,10 @@ map  <Left>  <Nop>
 imap <Left>  <Nop>
 map  <Right> <Nop>
 imap <Right> <Nop>
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
 " Make `Y` behave like `C` and `D`
 nnoremap Y y$
 " Make `n`/`N` bring next search result to middle line
