@@ -1,3 +1,4 @@
+--ignore-file=is:tags
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
 --type-set=sass:ext:scss,sass
