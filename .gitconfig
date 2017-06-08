@@ -40,8 +40,9 @@
   stats = shortlog -sn
   # Show detailed logs
   graph = log --graph --decorate --stat --date=iso --all
-  # Show simplified logs
+  # See everything everyone has done recently
   overview = log --oneline --no-merges
+  # See everything I have done recently
   recap = log --oneline --no-merges --author=csswizardry@gmail.com
   # See today’s work
   today = log --since=\"00:00:00\" --all --no-merges --oneline --author=csswizardry@gmail.com
