@@ -33,3 +33,11 @@
 
 --regex-html=/id="([A-Za-z0-9_-]+)"/\1/i,id,ids/
 --regex-html=/class="([A-Za-z0-9_-]+)"/\1/c,class,classes/
+
+--langdef=less
+--langmap=less:.less
+--regex-less=/^[ \t]*\.([A-Za-z0-9_-]+)/\1/c,class,classes/
+--regex-less=/^[ \t]*#([A-Za-z0-9_-]+)/\1/i,id,ids/
+--regex-less=/^[ \t]*(([A-Za-z0-9_-]+[ \t\n,]+)+)\{/\1/t,tag,tags/
+--regex-less=/^[ \t]*@media\s+([A-Za-z0-9_-]+)/\1/m,media,medias/
+--regex-scss=/^[ \t]*@([A-Za-z0-9_-]+)/\1/v,variable,variables/
