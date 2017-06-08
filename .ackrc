@@ -2,4 +2,6 @@
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
 --type-set=sass:ext:scss,sass
+--type-set=less:ext:less
+--type-set=style:ext:css,scss,sass,less
 --type-set=markdown:ext:markdown,md
