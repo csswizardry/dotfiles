@@ -37,7 +37,7 @@
   # Set upstream tracking much faster
   publish = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
   # Show number of commits from all authors.
-  stats = shortlog -sn
+  stats = shortlog -sn --all --no-merges
   # Show detailed logs
   graph = log --graph --decorate --stat --date=iso --all
   # See everything everyone has done recently
