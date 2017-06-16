@@ -12,18 +12,18 @@ source ~/.git-completion.bash
 
 
 
-# Prompt is scrappy. I’d love to know how to do this properly.
-function parse_git_branch () {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-RED="\[\033[0;31m\]"
+# Set up a Git-aware prompt
 GREEN="\[\033[0;32m\]"
 YELLOW="\[\033[0;33m\]"
 BLUE="\[\033[0;34m\]"
-NO_COLOUR="\[\033[0m\]"
+RESET="\033[m"
+ITALIC="\e[3m"
 
-PS1="$GREEN\u$NO_COLOUR \e[3min $BLUE\w$NO_COLOUR \e[3mon$YELLOW\$(parse_git_branch)$NO_COLOUR\n» "
+function parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1)/"
+}
+
+export PS1="\[$GREEN\]\u \[$RESET\]\[$ITALIC\]in \[$RESET\]\[$BLUE\]\w\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \[$RESET\]\[$ITALIC\]on \")\[$YELLOW\]\$(parse_git_branch)\[$RESET\]\n» "
 
 
 
