@@ -31,6 +31,8 @@
   down = pull
   # Sneak changes into your previous commit
   sneak = commit -a --amend --no-edit
+  # Undo the last commit, but preserve the staging area
+  undo = reset --soft HEAD^
   # It’s nice to be nice
   praise = blame
   who = blame
