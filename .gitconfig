@@ -48,8 +48,14 @@
   recap = log --oneline --no-merges --author=csswizardry@gmail.com
   # Show very last commit
   last = log --oneline -1
+  # Show our last tag
+  last-tag = describe --abbrev=0 --tags
+  # See the timestamp of a given commit
+  when = show -s --format=%ci
   # See today’s work
   today = log --since=\"00:00:00\" --all --no-merges --oneline --author=csswizardry@gmail.com
+  # See only which files have changed in a git show, not the whole diff
+  files = show --pretty=\"\" --name-only
   # Empty line between results from different files.
   find = "!git grep --break -C1"
   # Show your ten most recently checked out branches
