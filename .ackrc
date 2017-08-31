@@ -5,3 +5,4 @@
 --type-set=less:ext:less
 --type-set=style:ext:css,scss,sass,less
 --type-set=markdown:ext:markdown,md
+--smart-case
