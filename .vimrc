@@ -71,9 +71,15 @@ let g:indentLine_enabled = 0
 
 
 " Set relevant filetypes
-"au BufRead,BufNewFile *.scss set filetype=css
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.hbs set filetype=html
+autocmd BufRead,BufNewFile *.ejs set filetype=html
+
+
+
+" Brand new files need some scaffolding
+autocmd BufNewFile *.html              0r ~/.vim/skeleton/html.html
+autocmd BufNewFile *.scss,*.sass,*.css 0r ~/.vim/skeleton/css.css
 
 
 
