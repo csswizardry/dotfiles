@@ -1,6 +1,7 @@
 --ignore-file=is:tags
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
+--ignore-directory=is:_site
 --type-set=sass:ext:scss,sass
 --type-set=less:ext:less
 --type-set=style:ext:css,scss,sass,less

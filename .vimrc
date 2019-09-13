@@ -27,6 +27,7 @@ set t_Co=256
 " Solarized colour scheme...
 colorscheme solarized
 " ...with a dark background
+set background=light
 set background=dark
 " Italicised comments and attributes
 highlight Comment cterm=italic
@@ -74,6 +75,7 @@ let g:indentLine_enabled = 0
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.hbs set filetype=html
 autocmd BufRead,BufNewFile *.ejs set filetype=html
+autocmd BufRead,BufNewFile *.njk set filetype=html
 
 
 
@@ -98,6 +100,8 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=*.map,*.min.css
 set wildignore+=node_modules/*,bower_components/*
+" Hide buffers, rather than unloading them, when we leave them. Persists undo.
+set hidden
 
 
 
@@ -115,6 +119,8 @@ set shiftround
 set nowrap
 " Spell-check always on
 set spell
+" Underline spelling mistakes
+highlight SpellBad cterm=underline
 " Underscores denote words
 set iskeyword-=_
 " No extra spaces when joining lines

@@ -15,3 +15,5 @@ Thumbs.db
 
 # ctags files
 tags
+*.pem
+*.patch

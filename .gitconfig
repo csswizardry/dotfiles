@@ -45,7 +45,7 @@
   # See everything everyone has done recently
   overview = log --oneline --no-merges
   # See everything I have done recently
-  recap = log --oneline --no-merges --author=csswizardry@gmail.com
+  remind = log --oneline --no-merges --author=csswizardry@gmail.com
   # Show very last commit
   last = log --oneline -1
   # Show our last tag
@@ -70,10 +70,12 @@
   wdiff = diff --word-diff
   # Make it possible to diff minified code (eww…)
   mindiff = diff -w --word-diff-regex=. --color-words -U0
+  root = rev-parse --show-toplevel
 [core]
   editor = vim
   excludesfile = ~/.gitignore
   whitespace = warn
+  pager = less
 [push]
   default = current
 [github]
@@ -83,6 +85,7 @@
 [commit]
   template = /Users/harryroberts/.git-commit-template
   gpgsign = true
+  verbose = true
 [diff]
   tool = vimdiff
 [difftool]

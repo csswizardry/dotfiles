@@ -1,5 +1,6 @@
 # Add stuff to the PATH
 export PATH="$PATH:`yarn global bin`"
+export PATH="/usr/local/opt/mozjpeg/bin:$PATH"
 
 
 
@@ -36,7 +37,8 @@ alias vtop="vtop --theme wizard"
 alias site="cd ~/Sites/csswizardry.com"
 alias dotfiles="cd ~/Sites/dotfiles"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias ctags="`brew --prefix`/bin/ctags"
+alias cleardns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+#alias ctags="`brew --prefix`/bin/ctags"
 alias ll="ls -lhFG"
 
 # Spin up a server, just specify port
@@ -47,3 +49,8 @@ server() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
