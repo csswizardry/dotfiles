@@ -3,25 +3,16 @@
   email = csswizardry@gmail.com
   signingkey = D237343A
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = true
+  ui = auto
   pager = true
-[color "status"]
-  added = green
-  changed = blue
-  untracked = red
-[color "diff"]
-  meta = yellow
-  old = red
-  new = green
 [log]
   # Better date formats in logs
   date = rfc
+  # Show tags etc. in logs
+  decorate = short
 [alias]
-  st = status
+  # Terser statuses that show branch info
+  st = status -sb
   ci = commit
   br = branch
   co = checkout
@@ -54,6 +45,8 @@
   when = show -s --format=%ci
   # See today’s work
   today = log --since=\"00:00:00\" --all --no-merges --oneline --author=csswizardry@gmail.com
+  # See yesterday’s work
+  yesterday = log --since='yesterday.midnight' --until='midnight' --all --no-merges --oneline --author=csswizardry@gmail.com
   # See only which files have changed in a git show, not the whole diff
   files = show --pretty=\"\" --name-only
   # Empty line between results from different files.
@@ -61,11 +54,11 @@
   # Show your ten most recently checked out branches
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
   # Compare commits in one branch against another, e.g. $ git compare tkt-0021 to develop
-  compare = "!f() { git log --oneline $1..$2;  }; f"
+  compare = "!f() { git log --oneline \"$1..$2\"; }; f"
   # See which commits are on your local branch that aren’t on the remote
-  local = "! git log --oneline --no-merges origin/$(git rev-parse --abbrev-ref HEAD).."
+  local = log --oneline --no-merges @{upstream}..
   # See which commits are on the remote that aren’t on your local branch
-  upstream = "! git fetch && git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
+  upstream = "!git fetch && git log --oneline --no-merges ..@{upstream}"
   # Nicer diffs for prose
   wdiff = diff --word-diff
   # Make it possible to diff minified code (eww…)
@@ -74,10 +67,17 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
-  whitespace = warn
   pager = less
+  attributesfile = /Users/harryroberts/.gitattributes
+[apply]
+  whitespace = warn
 [push]
   default = current
+  autoSetupRemote = true
+[pull]
+  rebase = false
+[fetch]
+  prune = true
 [github]
   user = csswizardry
 [ghi]
@@ -91,9 +91,9 @@
 [difftool]
   prompt = false
 [help]
-  autocorrect = 1
+  autocorrect = prompt
 [merge]
   tool = vimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [mergetool]
   keepBackup = false
