@@ -2,55 +2,115 @@
   name = Harry Roberts
   email = csswizardry@gmail.com
   signingkey = D237343A
+
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+  pager = less
+  attributesfile = /Users/harryroberts/.gitattributes
+
+[commit]
+  template = /Users/harryroberts/.git-commit-template
+  gpgsign = true
+  verbose = true
+
+[fetch]
+  prune = true
+
+[pull]
+  rebase = false
+
+[push]
+  default = current
+  autoSetupRemote = true
+
+[apply]
+  whitespace = warn
+
 [color]
   ui = auto
   pager = true
+
 [log]
   # Better date formats in logs
   date = rfc
   # Show tags etc. in logs
   decorate = short
+
+[help]
+  autocorrect = prompt
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+
+[merge]
+  tool = vimdiff
+  conflictstyle = zdiff3
+
+[mergetool]
+  keepBackup = false
+
+[github]
+  user = csswizardry
+
+[ghi]
+  token = !security find-internet-password -a csswizardry -s github.com -l 'ghi token' -w
+
 [alias]
+  # Everyday shorthand
   # Terser statuses that show branch info
   st = status -sb
   ci = commit
   br = branch
   co = checkout
   df = diff
+
+  # Push and pull
   # James Brown version control!
   up = push
   down = pull
+  # Set upstream tracking much faster
+  publish = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+
+  # Commit manipulation
   # Sneak changes into your previous commit
   sneak = commit -a --amend --no-edit
   # Undo the last commit, but preserve the staging area
   undo = reset --soft HEAD^
-  # It’s nice to be nice
-  praise = blame
-  who = blame
-  # Set upstream tracking much faster
-  publish = "! git push -u origin $(git rev-parse --abbrev-ref HEAD)"
-  # Show number of commits from all authors.
-  stats = shortlog -sn --all --no-merges
-  # Show detailed logs
-  graph = log --graph --decorate --stat --date=iso --all
+
+  # History and inspection
   # See everything everyone has done recently
   overview = log --oneline --no-merges
-  # See everything I have done recently
-  remind = log --oneline --no-merges --author=csswizardry@gmail.com
+  # Show detailed logs
+  graph = log --graph --decorate --stat --date=iso --all
   # Show very last commit
   last = log --oneline -1
   # Show our last tag
   last-tag = describe --abbrev=0 --tags
   # See the timestamp of a given commit
   when = show -s --format=%ci
-  # See today’s work
-  today = log --since=\"00:00:00\" --all --no-merges --oneline --author=csswizardry@gmail.com
-  # See yesterday’s work
-  yesterday = log --since='yesterday.midnight' --until='midnight' --all --no-merges --oneline --author=csswizardry@gmail.com
   # See only which files have changed in a git show, not the whole diff
   files = show --pretty=\"\" --name-only
   # Empty line between results from different files.
   find = "!git grep --break -C1"
+  # It’s nice to be nice
+  praise = blame
+  who = blame
+
+  # Personal activity
+  # Show number of commits from all authors.
+  stats = shortlog -sn --all --no-merges
+  # See everything I have done recently
+  remind = log --oneline --no-merges --author=csswizardry@gmail.com
+  # See today’s work
+  today = log --since=\"00:00:00\" --all --no-merges --oneline --author=csswizardry@gmail.com
+  # See yesterday’s work
+  yesterday = log --since='yesterday.midnight' --until='midnight' --all --no-merges --oneline --author=csswizardry@gmail.com
+
+  # Branches and upstreams
   # Show your ten most recently checked out branches
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
   # Compare commits in one branch against another, e.g. $ git compare tkt-0021 to develop
@@ -59,41 +119,12 @@
   local = log --oneline --no-merges @{upstream}..
   # See which commits are on the remote that aren’t on your local branch
   upstream = "!git fetch && git log --oneline --no-merges ..@{upstream}"
+
+  # Specialist diffs
   # Nicer diffs for prose
   wdiff = diff --word-diff
   # Make it possible to diff minified code (eww…)
   mindiff = diff -w --word-diff-regex=. --color-words -U0
+
+  # Repository navigation
   root = rev-parse --show-toplevel
-[core]
-  editor = vim
-  excludesfile = ~/.gitignore
-  pager = less
-  attributesfile = /Users/harryroberts/.gitattributes
-[apply]
-  whitespace = warn
-[push]
-  default = current
-  autoSetupRemote = true
-[pull]
-  rebase = false
-[fetch]
-  prune = true
-[github]
-  user = csswizardry
-[ghi]
-  token = !security find-internet-password -a csswizardry -s github.com -l 'ghi token' -w
-[commit]
-  template = /Users/harryroberts/.git-commit-template
-  gpgsign = true
-  verbose = true
-[diff]
-  tool = vimdiff
-[difftool]
-  prompt = false
-[help]
-  autocorrect = prompt
-[merge]
-  tool = vimdiff
-  conflictstyle = zdiff3
-[mergetool]
-  keepBackup = false
